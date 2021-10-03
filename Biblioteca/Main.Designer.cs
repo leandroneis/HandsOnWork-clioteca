@@ -47,9 +47,9 @@ namespace Biblioteca
             this.lbUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnChildForm = new System.Windows.Forms.Panel();
+            this.pcLogoCorpo = new System.Windows.Forms.PictureBox();
             this.pnMainTitulo = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.pcLogoCorpo = new System.Windows.Forms.PictureBox();
             this.pnMenu.SuspendLayout();
             this.pnSubMenuLivros.SuspendLayout();
             this.pnSubMenuEmprestimos.SuspendLayout();
@@ -57,8 +57,8 @@ namespace Biblioteca
             this.pnLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnChildForm.SuspendLayout();
-            this.pnMainTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcLogoCorpo)).BeginInit();
+            this.pnMainTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnMenu
@@ -106,7 +106,7 @@ namespace Biblioteca
             this.btnPesquisarLivros.Name = "btnPesquisarLivros";
             this.btnPesquisarLivros.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPesquisarLivros.Size = new System.Drawing.Size(186, 42);
-            this.btnPesquisarLivros.TabIndex = 26;
+            this.btnPesquisarLivros.TabIndex = 9;
             this.btnPesquisarLivros.Text = "Pesquisar Livros";
             this.btnPesquisarLivros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPesquisarLivros.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -126,7 +126,7 @@ namespace Biblioteca
             this.btnNovoLivro.Name = "btnNovoLivro";
             this.btnNovoLivro.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnNovoLivro.Size = new System.Drawing.Size(186, 42);
-            this.btnNovoLivro.TabIndex = 25;
+            this.btnNovoLivro.TabIndex = 8;
             this.btnNovoLivro.Text = "Novo Livro";
             this.btnNovoLivro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovoLivro.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -147,7 +147,7 @@ namespace Biblioteca
             this.btnLivro.Name = "btnLivro";
             this.btnLivro.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLivro.Size = new System.Drawing.Size(186, 42);
-            this.btnLivro.TabIndex = 20;
+            this.btnLivro.TabIndex = 7;
             this.btnLivro.Text = "Livros";
             this.btnLivro.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLivro.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@ namespace Biblioteca
             this.btnPesquisarEmprestimos.Name = "btnPesquisarEmprestimos";
             this.btnPesquisarEmprestimos.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPesquisarEmprestimos.Size = new System.Drawing.Size(186, 42);
-            this.btnPesquisarEmprestimos.TabIndex = 24;
+            this.btnPesquisarEmprestimos.TabIndex = 6;
             this.btnPesquisarEmprestimos.Text = "Pesquisar Empréstimos";
             this.btnPesquisarEmprestimos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPesquisarEmprestimos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -199,7 +199,7 @@ namespace Biblioteca
             this.btnNovoEmprestimo.Name = "btnNovoEmprestimo";
             this.btnNovoEmprestimo.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnNovoEmprestimo.Size = new System.Drawing.Size(186, 42);
-            this.btnNovoEmprestimo.TabIndex = 23;
+            this.btnNovoEmprestimo.TabIndex = 5;
             this.btnNovoEmprestimo.Text = "Novo Empréstimo";
             this.btnNovoEmprestimo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovoEmprestimo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -220,7 +220,7 @@ namespace Biblioteca
             this.btnEmprestimo.Name = "btnEmprestimo";
             this.btnEmprestimo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmprestimo.Size = new System.Drawing.Size(186, 42);
-            this.btnEmprestimo.TabIndex = 18;
+            this.btnEmprestimo.TabIndex = 4;
             this.btnEmprestimo.Text = "Empréstimos";
             this.btnEmprestimo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEmprestimo.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@ namespace Biblioteca
             this.btnPesquisarCliente.Name = "btnPesquisarCliente";
             this.btnPesquisarCliente.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnPesquisarCliente.Size = new System.Drawing.Size(186, 42);
-            this.btnPesquisarCliente.TabIndex = 22;
+            this.btnPesquisarCliente.TabIndex = 3;
             this.btnPesquisarCliente.Text = "Pesquisar Clientes";
             this.btnPesquisarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPesquisarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -272,7 +272,7 @@ namespace Biblioteca
             this.btnNovoCliente.Name = "btnNovoCliente";
             this.btnNovoCliente.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.btnNovoCliente.Size = new System.Drawing.Size(186, 42);
-            this.btnNovoCliente.TabIndex = 21;
+            this.btnNovoCliente.TabIndex = 2;
             this.btnNovoCliente.Text = "Novo Cliente";
             this.btnNovoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNovoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -293,7 +293,7 @@ namespace Biblioteca
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCliente.Size = new System.Drawing.Size(186, 42);
-            this.btnCliente.TabIndex = 16;
+            this.btnCliente.TabIndex = 1;
             this.btnCliente.Text = "Clientes";
             this.btnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCliente.UseVisualStyleBackColor = true;
@@ -345,6 +345,16 @@ namespace Biblioteca
             this.pnChildForm.Size = new System.Drawing.Size(1051, 815);
             this.pnChildForm.TabIndex = 2;
             // 
+            // pcLogoCorpo
+            // 
+            this.pcLogoCorpo.Image = ((System.Drawing.Image)(resources.GetObject("pcLogoCorpo.Image")));
+            this.pcLogoCorpo.Location = new System.Drawing.Point(180, 174);
+            this.pcLogoCorpo.Name = "pcLogoCorpo";
+            this.pcLogoCorpo.Size = new System.Drawing.Size(650, 608);
+            this.pcLogoCorpo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pcLogoCorpo.TabIndex = 1;
+            this.pcLogoCorpo.TabStop = false;
+            // 
             // pnMainTitulo
             // 
             this.pnMainTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(176)))));
@@ -366,16 +376,6 @@ namespace Biblioteca
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "CLIOTECA";
             // 
-            // pcLogoCorpo
-            // 
-            this.pcLogoCorpo.Image = ((System.Drawing.Image)(resources.GetObject("pcLogoCorpo.Image")));
-            this.pcLogoCorpo.Location = new System.Drawing.Point(180, 174);
-            this.pcLogoCorpo.Name = "pcLogoCorpo";
-            this.pcLogoCorpo.Size = new System.Drawing.Size(650, 608);
-            this.pcLogoCorpo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pcLogoCorpo.TabIndex = 1;
-            this.pcLogoCorpo.TabStop = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,6 +385,7 @@ namespace Biblioteca
             this.Controls.Add(this.pnMenu);
             this.MaximumSize = new System.Drawing.Size(1253, 854);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clioteca";
             this.pnMenu.ResumeLayout(false);
             this.pnSubMenuLivros.ResumeLayout(false);
@@ -394,9 +395,9 @@ namespace Biblioteca
             this.pnLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcLogoCorpo)).EndInit();
             this.pnMainTitulo.ResumeLayout(false);
             this.pnMainTitulo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcLogoCorpo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,10 +405,8 @@ namespace Biblioteca
         #endregion
 
         private System.Windows.Forms.Panel pnMenu;
-        private System.Windows.Forms.Panel pnChildForm;
         private System.Windows.Forms.Panel pnLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnMainTitulo;
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button btnCliente;
         private System.Windows.Forms.Label lbUserName;
@@ -423,6 +422,8 @@ namespace Biblioteca
         private System.Windows.Forms.Button btnPesquisarEmprestimos;
         private System.Windows.Forms.Button btnNovoEmprestimo;
         private System.Windows.Forms.PictureBox pcLogoCorpo;
+        public System.Windows.Forms.Panel pnChildForm;
+        public System.Windows.Forms.Panel pnMainTitulo;
     }
 }
 

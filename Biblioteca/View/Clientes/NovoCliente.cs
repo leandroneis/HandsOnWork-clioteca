@@ -9,25 +9,40 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 
-namespace Biblioteca.Formularios.Clientes
+namespace Biblioteca.View.Clientes
 {
     public partial class NovoCliente : Form
     {
 
-        private ClienteController controller;
-        public NovoCliente()
+        private ClienteController _controller;
+        public NovoCliente(Main main)
         {
             InitializeComponent();
-            ocultaLabelCamposObrigatorios();
-            this.controller = new ClienteController();
+            OcultaLabelCamposObrigatorios();
+            btnDesativar.Visible = false;
+            _controller = new ClienteController();
         }
+
+        public void PreencherFormularioTelaEdicao(String codigo) {
+            lbTituloNovoCliente.Text = "Edição de Cliente";
+            btnDesativar.Visible = true;
+            _controller.PreencherFormularioTelaEdicao(codigo, tbCodigo, tbNomeCompleto, tbEmail, mTbTelefone, tbLogradouro, tbNumero, tbComplemento, mTbCep, tbBairro, tbCidade, tbEstado, mTbDataNascimento);
+        }
+
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(verificaCamposObrigatoriosPreenchidos(tbNomeCompleto.Text, mtbTelefone.Text, tbEmail.Text)){
-                controller.salvar(tbNomeCompleto.Text, tbEmail.Text, mtbTelefone.Text, tbLogradouro.Text, tbNumero.Text, tbComplemento.Text, mTbCep.Text, tbBairro.Text, tbCidade.Text, tbEstado.Text, dtDataDeNascimento.Text);
+            if (VerificaCamposObrigatoriosPreenchidos(tbNomeCompleto.Text, mTbTelefone.Text, tbEmail.Text))
+            {
+                if (!String.IsNullOrEmpty(tbCodigo.Text) && !tbCodigo.Text.Equals("0"))
+                {
+                    _controller.Atualizar(tbCodigo.Text,tbNomeCompleto.Text, tbEmail.Text, mTbTelefone.Text, tbLogradouro.Text, tbNumero.Text, tbComplemento.Text, mTbCep.Text, tbBairro.Text, tbCidade.Text, tbEstado.Text, mTbDataNascimento.Text);
+                }
+                else {
+                    _controller.Salvar(tbNomeCompleto.Text, tbEmail.Text, mTbTelefone.Text, tbLogradouro.Text, tbNumero.Text, tbComplemento.Text, mTbCep.Text, tbBairro.Text, tbCidade.Text, tbEstado.Text, mTbDataNascimento.Text);
+                }
+                LimparCampos();
             }
-            LimparCampos();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -37,35 +52,71 @@ namespace Biblioteca.Formularios.Clientes
 
         private void LimparCampos()
         {
+            tbCodigo.Clear();
             tbNomeCompleto.Clear();
             tbEmail.Clear();
-            mtbTelefone.Clear();
+            mTbTelefone.Clear();
             tbLogradouro.Clear();
             tbNumero.Clear();
             tbComplemento.Clear();
             mTbCep.Clear();
             tbBairro.Clear();
             tbCidade.Clear();
-            tbEstado.Clear();
-            //VerificarDataDeNascimento
-            ocultaLabelCamposObrigatorios();
+            mTbDataNascimento.Clear();
+            btnDesativar.Visible = false;
+            lbTituloNovoCliente.Text = "Novo Cliente";
+
+            OcultaLabelCamposObrigatorios();
         }
 
 
-        private Boolean verificaCamposObrigatoriosPreenchidos(String nomeCompleto,String telefone,String email) 
+        private Boolean VerificaCamposObrigatoriosPreenchidos(String nomeCompleto,String telefone,String email) 
         {
-            if (!nomeCompleto.Equals("") && !telefone.Equals("") && !email.Equals("")) {
+            var telefoneSemMascara = Utils.RemoverCaracteresInvalidos(telefone);
+            if (!String.IsNullOrEmpty(nomeCompleto) && !String.IsNullOrEmpty(telefoneSemMascara) && !String.IsNullOrEmpty(email)) {
                 return true;
             }
-
+            MostraLabelCamposObrigatorios(nomeCompleto, telefoneSemMascara, email);
             return false;
-
-
         }
-        private void ocultaLabelCamposObrigatorios() {
+        private void OcultaLabelCamposObrigatorios() {
             lbNomeObrigatorio.Visible = false;
             lbEmailObrigatorio.Visible = false;
             lbTelefoneObrigatorio.Visible = false;
+        }
+        private void MostraLabelCamposObrigatorios(String nomeCompleto, String telefone, String email)
+        {
+            if (String.IsNullOrEmpty(nomeCompleto))
+            {
+                lbNomeObrigatorio.Visible = true;
+            }
+            else {
+                lbNomeObrigatorio.Visible = false;
+            }
+
+            if (String.IsNullOrEmpty(telefone))
+            {
+                lbTelefoneObrigatorio.Visible = true;
+            }
+            else {
+                lbTelefoneObrigatorio.Visible = false;
+            }
+            if (String.IsNullOrEmpty(email))
+            {
+                lbEmailObrigatorio.Visible = true;
+            }
+            else {
+                lbEmailObrigatorio.Visible = false;
+            }
+        }
+
+        private void btnDesativar_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbCodigo.Text) && !tbCodigo.Text.Equals("0")) {
+                _controller.DesativarCliente(tbCodigo.Text);
+
+                LimparCampos();
+            }
         }
     }
 }

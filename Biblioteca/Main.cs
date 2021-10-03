@@ -58,14 +58,14 @@ namespace Biblioteca
         private void btnNovoCliente_Click(object sender, EventArgs e)
         {
             
-            openChildForm(new Formularios.Clientes.NovoCliente());
+            openChildForm(new View.Clientes.NovoCliente(this));
             hideSubMenu();
         }
 
         private void btnPesquisarCliente_Click(object sender, EventArgs e)
         {
          
-            openChildForm(new Formularios.Clientes.PesquisarClientes());
+            openChildForm(new View.Clientes.PesquisarClientes(this));
             hideSubMenu();
         }
 
@@ -78,13 +78,13 @@ namespace Biblioteca
         private void btnNovoEmprestimo_Click(object sender, EventArgs e)
         {
           
-            openChildForm(new Formularios.Emprestimos.NovoEmprestimo());
+            openChildForm(new View.Emprestimos.NovoEmprestimo(this));
             hideSubMenu();
         }
 
         private void btnPesquisarEmprestimos_Click(object sender, EventArgs e)
         {
-            openChildForm(new Formularios.Emprestimos.PesquisarEmprestimo());
+            openChildForm(new View.Emprestimos.PesquisarEmprestimo(this));
             hideSubMenu();
         }
 
@@ -97,13 +97,13 @@ namespace Biblioteca
 
         private void btnNovoLivro_Click(object sender, EventArgs e)
         {
-            openChildForm(new Formularios.Livros.NovoLivro());
+            openChildForm(new View.Livros.NovoLivro(this));
             hideSubMenu();
         }
 
         private void btnPesquisarLivros_Click(object sender, EventArgs e)
         {
-            openChildForm(new Formularios.Livros.PesquisarLivros());
+            openChildForm(new View.Livros.PesquisarLivros(this));
             hideSubMenu();
         }
 

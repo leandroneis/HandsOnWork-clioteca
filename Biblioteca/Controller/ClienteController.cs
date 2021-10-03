@@ -5,38 +5,132 @@ using System.Text;
 using System.Threading.Tasks;
 using Biblioteca.Model;
 using Biblioteca.DAO;
-
+using System.Windows.Forms;
+using System.Collections;
 
 namespace Biblioteca.Controller
 {
     public class ClienteController
     {
+        private ClienteDAO _dao = new ClienteDAO();
 
-        public String excluir(int id)
-        { return ""; }
+        public void DesativarCliente(String codigo)
+        {
+            _dao.DesativarCliente(int.Parse(codigo));
+        }
 
-        public Cliente editar()
-        {  return null; }
-
-        public List<Cliente> pesquisar(String valor)
-        {  return null; }
-
-        public void salvar(string nomeCompleto, string email, string telefone, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado, string dataDeNascimento)
+        public void BuscarPorCodigoOuNomeTelaPesquisar(String codigo, String nome, DataGridView dtGridClientes)
         {
             Cliente cliente = new Cliente();
-            cliente.NomeCompleto = nomeCompleto;
-            cliente.Email = email;
-            cliente.Telefone = telefone;
-            cliente.Logradouro = logradouro;
-            cliente.Numero = numero;
-            cliente.Complemento = complemento;
-            cliente.Cep = cep;
-            cliente.Bairro = bairro;
-            cliente.Cidade = cidade;
-            cliente.Estado = estado;
-            cliente.DataNascimento = Utils.converterStringEmDateTime(dataDeNascimento);
 
+            if (String.IsNullOrEmpty(codigo) && String.IsNullOrEmpty(nome))
+            {
+                TodosClientes(dtGridClientes);
+            }
+            else
+            {
+                cliente.Codigo = !String.IsNullOrEmpty(codigo) ? int.Parse(codigo) : (int?)null;
+                cliente.NomeCompleto = nome;
+                AtualizaGrid(_dao.Pesquisar(cliente), dtGridClientes);
+            }
         }
-        
+
+        public void Atualizar(string codigo, string nomeCompleto, string email, string telefone, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado, string dataDeNascimento)
+        {
+            Cliente cliente = new Cliente
+            {
+                Codigo = int.Parse(codigo),
+                NomeCompleto = nomeCompleto,
+                Email = email,
+                Telefone = telefone,
+                Ativo = true,
+                Logradouro = String.IsNullOrEmpty(logradouro) ? null : logradouro,
+                Numero = String.IsNullOrEmpty(numero) ? null : numero,
+                Complemento = String.IsNullOrEmpty(complemento) ? null : complemento,
+                Cep = String.IsNullOrEmpty(Utils.RemoverCaracteresInvalidos(cep)) ? null : Utils.RemoverCaracteresInvalidos(cep),
+                Bairro = String.IsNullOrEmpty(bairro) ? null : bairro,
+                Cidade = String.IsNullOrEmpty(cidade) ? null : cidade,
+                Estado = String.IsNullOrEmpty(estado) ? null : estado,
+                DataNascimento = String.IsNullOrEmpty(Utils.RemoverCaracteresInvalidos(dataDeNascimento)) ? null : Utils.RemoverCaracteresInvalidos(dataDeNascimento)
+            };
+
+            _dao.Atualizar(cliente);
+        }
+
+        public void AtualizaGrid(List<Cliente> clientes, DataGridView dtGridClientes)
+        {
+            dtGridClientes.Rows.Clear();
+            foreach (Cliente cliente in clientes)
+            {
+                DataGridViewRow row = (DataGridViewRow)dtGridClientes.Rows[0].Clone();
+                row.Cells[0].Value = cliente.Codigo;
+                row.Cells[1].Value = cliente.NomeCompleto;
+                row.Cells[2].Value = cliente.Email;
+                row.Cells[3].Value = cliente.Telefone;
+                row.Cells[4].Value = cliente.Ativo;
+                dtGridClientes.Rows.Add(row);
+
+            }
+        }
+
+        public void TodosClientes(DataGridView dtGridClientes)
+        {
+            AtualizaGrid(_dao.TodosOsClientes(), dtGridClientes);
+        }
+
+        public void Salvar(string nomeCompleto, string email, string telefone, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado, string dataDeNascimento)
+        {
+            
+            Cliente cliente = new Cliente
+            {
+                NomeCompleto = nomeCompleto,
+                Email = email,
+                Telefone = telefone,
+                Ativo = true,
+                Logradouro = String.IsNullOrEmpty(logradouro) ? null : logradouro,
+                Numero = String.IsNullOrEmpty(numero) ? null : numero,
+                Complemento = String.IsNullOrEmpty(complemento) ? null : complemento,
+                Cep = String.IsNullOrEmpty(Utils.RemoverCaracteresInvalidos(cep)) ? null : Utils.RemoverCaracteresInvalidos(cep),
+                Bairro = String.IsNullOrEmpty(bairro) ? null : bairro,
+                Cidade = String.IsNullOrEmpty(cidade) ? null : cidade,
+                Estado = String.IsNullOrEmpty(estado) ? null : estado,
+                DataNascimento = String.IsNullOrEmpty(Utils.RemoverCaracteresInvalidos(dataDeNascimento)) ? null : Utils.RemoverCaracteresInvalidos(dataDeNascimento)
+            };
+            _dao.Inserir(cliente);
+        }
+
+
+        public void CarregarComboboxClientes(ComboBox cbClientes)
+        {
+            cbClientes.SelectedItem = null;
+            cbClientes.ValueMember = "codigo";
+            cbClientes.DisplayMember = "nomeCompleto";
+            cbClientes.SelectedValue = "codigo";
+            cbClientes.SelectedText = "Selecione um Livro";
+            cbClientes.DataSource = _dao.TodosOsClientes();
+        }
+
+        public void PreencherFormularioTelaEdicao(string codigo, TextBox tbCodigo, TextBox tbNomeCompleto, TextBox tbEmail, MaskedTextBox mTbTelefone, TextBox tbLogradouro, TextBox tbNumero, TextBox tbComplemento, MaskedTextBox mTbCep, TextBox tbBairro, TextBox tbCidade, TextBox tbEstado, MaskedTextBox mTbDataNascimento)
+        {
+            Cliente cliente = new Cliente();
+            cliente = _dao.BuscarClientePorCodigo(int.Parse(codigo));
+
+            if (cliente != null)
+            {
+                tbCodigo.Text = cliente.Codigo.ToString();
+                tbNomeCompleto.Text = cliente.NomeCompleto;
+                tbEmail.Text = cliente.Email;
+                mTbTelefone.Text = cliente.Telefone;
+                tbLogradouro.Text = cliente.Logradouro;
+                tbNumero.Text = cliente.Numero;
+                tbComplemento.Text = cliente.Complemento;
+                mTbCep.Text = cliente.Cep;
+                tbBairro.Text = cliente.Bairro;
+                tbCidade.Text = cliente.Cidade;
+                tbEstado.Text = cliente.Estado;
+                mTbDataNascimento.Text = cliente.DataNascimento;
+
+            }
+        }
     }
 }

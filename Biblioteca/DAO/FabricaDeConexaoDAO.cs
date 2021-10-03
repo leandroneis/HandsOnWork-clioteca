@@ -27,10 +27,6 @@ namespace Biblioteca.DAO
             {
                 Console.WriteLine("Não foi possível conectar ao banco de dados" + ex);
             }
-            finally {
-                desconectar();
-                conexao = null;
-            }
             return conexao;
         }
 

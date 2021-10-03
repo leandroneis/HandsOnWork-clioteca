@@ -1,5 +1,5 @@
 ﻿
-namespace Biblioteca.Formularios.Livros
+namespace Biblioteca.View.Livros
 {
     partial class PesquisarLivros
     {
@@ -31,22 +31,25 @@ namespace Biblioteca.Formularios.Livros
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTituloPesquisarLivros = new System.Windows.Forms.Label();
-            this.dtGridClientes = new System.Windows.Forms.DataGridView();
+            this.dgLivros = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.tbAutor = new System.Windows.Forms.TextBox();
             this.lbAutor = new System.Windows.Forms.Label();
             this.tbTitulo = new System.Windows.Forms.TextBox();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.tbCodigo = new System.Windows.Forms.TextBox();
             this.lbCodigo = new System.Windows.Forms.Label();
+            this.lbCodigoMsg = new System.Windows.Forms.Label();
+            this.tbCodigo = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLivros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCodigo)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,59 +76,69 @@ namespace Biblioteca.Formularios.Livros
             this.lbTituloPesquisarLivros.Text = "Pesquisar Livros";
             this.lbTituloPesquisarLivros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dtGridClientes
+            // dgLivros
             // 
-            this.dtGridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgLivros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLivros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
             this.titulo,
             this.autor,
-            this.assunto,
-            this.editora});
-            this.dtGridClientes.Location = new System.Drawing.Point(12, 348);
-            this.dtGridClientes.Name = "dtGridClientes";
-            this.dtGridClientes.Size = new System.Drawing.Size(1011, 420);
-            this.dtGridClientes.TabIndex = 36;
+            this.categoria,
+            this.editora,
+            this.ativo});
+            this.dgLivros.Location = new System.Drawing.Point(12, 348);
+            this.dgLivros.Name = "dgLivros";
+            this.dgLivros.Size = new System.Drawing.Size(1011, 420);
+            this.dgLivros.TabIndex = 36;
+            this.dgLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLivros_CellContentClick);
+            this.dgLivros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLivros_CellContentClick);
+            this.dgLivros.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLivros_CellContentClick);
             // 
             // codigo
             // 
             this.codigo.HeaderText = "Código ";
             this.codigo.Name = "codigo";
-            this.codigo.Width = 57;
+            this.codigo.Width = 58;
             // 
             // titulo
             // 
             this.titulo.HeaderText = "Título";
             this.titulo.Name = "titulo";
-            this.titulo.Width = 350;
+            this.titulo.Width = 290;
             // 
             // autor
             // 
             this.autor.HeaderText = "Autor";
             this.autor.Name = "autor";
-            this.autor.Width = 250;
+            this.autor.Width = 187;
             // 
-            // assunto
+            // categoria
             // 
-            this.assunto.HeaderText = "Assunto";
-            this.assunto.Name = "assunto";
-            this.assunto.Width = 155;
+            this.categoria.HeaderText = "Categoria";
+            this.categoria.Name = "categoria";
+            this.categoria.Width = 190;
             // 
             // editora
             // 
             this.editora.HeaderText = "Editora";
             this.editora.Name = "editora";
-            this.editora.Width = 155;
+            this.editora.Width = 187;
+            // 
+            // ativo
+            // 
+            this.ativo.HeaderText = "Ativo";
+            this.ativo.Name = "ativo";
+            this.ativo.Width = 55;
             // 
             // btnLimpar
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(176)))));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(535, 301);
+            this.btnLimpar.Location = new System.Drawing.Point(535, 283);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(103, 41);
-            this.btnLimpar.TabIndex = 35;
+            this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -135,21 +148,21 @@ namespace Biblioteca.Formularios.Livros
             this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(176)))));
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.ForeColor = System.Drawing.Color.White;
-            this.btnPesquisar.Location = new System.Drawing.Point(387, 301);
+            this.btnPesquisar.Location = new System.Drawing.Point(387, 283);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(127, 41);
-            this.btnPesquisar.TabIndex = 34;
+            this.btnPesquisar.TabIndex = 4;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // tbAutor
             // 
-            this.tbAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.tbAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbAutor.Location = new System.Drawing.Point(379, 207);
             this.tbAutor.Name = "tbAutor";
-            this.tbAutor.Size = new System.Drawing.Size(295, 22);
-            this.tbAutor.TabIndex = 33;
+            this.tbAutor.Size = new System.Drawing.Size(295, 26);
+            this.tbAutor.TabIndex = 2;
             // 
             // lbAutor
             // 
@@ -164,11 +177,11 @@ namespace Biblioteca.Formularios.Livros
             // 
             // tbTitulo
             // 
-            this.tbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbTitulo.Location = new System.Drawing.Point(379, 239);
             this.tbTitulo.Name = "tbTitulo";
-            this.tbTitulo.Size = new System.Drawing.Size(295, 22);
-            this.tbTitulo.TabIndex = 31;
+            this.tbTitulo.Size = new System.Drawing.Size(295, 26);
+            this.tbTitulo.TabIndex = 3;
             // 
             // lbTitulo
             // 
@@ -181,14 +194,6 @@ namespace Biblioteca.Formularios.Livros
             this.lbTitulo.TabIndex = 30;
             this.lbTitulo.Text = "Título:";
             // 
-            // tbCodigo
-            // 
-            this.tbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCodigo.Location = new System.Drawing.Point(379, 175);
-            this.tbCodigo.Name = "tbCodigo";
-            this.tbCodigo.Size = new System.Drawing.Size(295, 22);
-            this.tbCodigo.TabIndex = 38;
-            // 
             // lbCodigo
             // 
             this.lbCodigo.AutoSize = true;
@@ -200,6 +205,31 @@ namespace Biblioteca.Formularios.Livros
             this.lbCodigo.TabIndex = 37;
             this.lbCodigo.Text = "Código:";
             // 
+            // lbCodigoMsg
+            // 
+            this.lbCodigoMsg.AutoSize = true;
+            this.lbCodigoMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCodigoMsg.ForeColor = System.Drawing.Color.Red;
+            this.lbCodigoMsg.Location = new System.Drawing.Point(680, 175);
+            this.lbCodigoMsg.Name = "lbCodigoMsg";
+            this.lbCodigoMsg.Size = new System.Drawing.Size(220, 20);
+            this.lbCodigoMsg.TabIndex = 39;
+            this.lbCodigoMsg.Text = "O Código não pode ser 0!*";
+            // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbCodigo.Location = new System.Drawing.Point(379, 175);
+            this.tbCodigo.Margin = new System.Windows.Forms.Padding(10);
+            this.tbCodigo.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.Size = new System.Drawing.Size(295, 26);
+            this.tbCodigo.TabIndex = 1;
+            // 
             // PesquisarLivros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,8 +237,9 @@ namespace Biblioteca.Formularios.Livros
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1035, 776);
             this.Controls.Add(this.tbCodigo);
+            this.Controls.Add(this.lbCodigoMsg);
             this.Controls.Add(this.lbCodigo);
-            this.Controls.Add(this.dtGridClientes);
+            this.Controls.Add(this.dgLivros);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.tbAutor);
@@ -220,9 +251,11 @@ namespace Biblioteca.Formularios.Livros
             this.MinimumSize = new System.Drawing.Size(1051, 815);
             this.Name = "PesquisarLivros";
             this.Text = "PesquisarLivros";
+            this.Load += new System.EventHandler(this.PesquisarLivros_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLivros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCodigo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,19 +265,21 @@ namespace Biblioteca.Formularios.Livros
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTituloPesquisarLivros;
-        private System.Windows.Forms.DataGridView dtGridClientes;
+        private System.Windows.Forms.DataGridView dgLivros;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox tbAutor;
         private System.Windows.Forms.Label lbAutor;
         private System.Windows.Forms.TextBox tbTitulo;
         private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.TextBox tbCodigo;
         private System.Windows.Forms.Label lbCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn autor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assunto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn editora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ativo;
+        private System.Windows.Forms.Label lbCodigoMsg;
+        private System.Windows.Forms.NumericUpDown tbCodigo;
     }
 }

@@ -8,7 +8,7 @@ namespace Biblioteca.Model
 {
     public class Emprestimo
     {
-        private long codigo;
+        private Nullable<int> codigo;
         private DateTime dataEmprestimo;
         private DateTime dataDevolucao;
         private bool ativo;
@@ -18,7 +18,7 @@ namespace Biblioteca.Model
 
         public Emprestimo() { }
 
-        public Emprestimo(long codigo, DateTime dataEmprestimo, DateTime dataDevolucao, bool ativo, Cliente cliente, Livro livro)
+        public Emprestimo(int codigo, DateTime dataEmprestimo, DateTime dataDevolucao, bool ativo, Cliente cliente, Livro livro)
         {
             this.Codigo = codigo;
             this.DataEmprestimo = dataEmprestimo;
@@ -28,7 +28,7 @@ namespace Biblioteca.Model
             this.Livro = livro;
         }
 
-        public long Codigo { get => codigo; set => codigo = value; }
+        public Nullable<int> Codigo { get => codigo; set => codigo = value; }
         public DateTime DataEmprestimo { get => dataEmprestimo; set => dataEmprestimo = value; }
         public DateTime DataDevolucao { get => dataDevolucao; set => dataDevolucao = value; }
         public bool Ativo { get => ativo; set => ativo = value; }

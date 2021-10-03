@@ -1,5 +1,5 @@
 ﻿
-namespace Biblioteca.Formularios.Clientes
+namespace Biblioteca.View.Clientes
 {
     partial class NovoCliente
     {
@@ -37,7 +37,6 @@ namespace Biblioteca.Formularios.Clientes
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbDataNascimento = new System.Windows.Forms.Label();
-            this.dtDataDeNascimento = new System.Windows.Forms.DateTimePicker();
             this.tbLogradouro = new System.Windows.Forms.TextBox();
             this.lbLogradouro = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,7 +56,11 @@ namespace Biblioteca.Formularios.Clientes
             this.lbNomeObrigatorio = new System.Windows.Forms.Label();
             this.lbTelefoneObrigatorio = new System.Windows.Forms.Label();
             this.lbEmailObrigatorio = new System.Windows.Forms.Label();
-            this.mtbTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.lbCodigo = new System.Windows.Forms.Label();
+            this.tbCodigo = new System.Windows.Forms.TextBox();
+            this.btnDesativar = new System.Windows.Forms.Button();
+            this.mTbDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.mTbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.pnTituloNovoCliente.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +93,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbNomeCompleto.AutoSize = true;
             this.lbNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNomeCompleto.ForeColor = System.Drawing.Color.White;
-            this.lbNomeCompleto.Location = new System.Drawing.Point(220, 189);
+            this.lbNomeCompleto.Location = new System.Drawing.Point(241, 235);
             this.lbNomeCompleto.Name = "lbNomeCompleto";
             this.lbNomeCompleto.Size = new System.Drawing.Size(148, 20);
             this.lbNomeCompleto.TabIndex = 2;
@@ -98,18 +101,19 @@ namespace Biblioteca.Formularios.Clientes
             // 
             // tbNomeCompleto
             // 
-            this.tbNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNomeCompleto.Location = new System.Drawing.Point(224, 227);
+            this.tbNomeCompleto.BackColor = System.Drawing.SystemColors.Window;
+            this.tbNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbNomeCompleto.Location = new System.Drawing.Point(245, 273);
             this.tbNomeCompleto.Name = "tbNomeCompleto";
-            this.tbNomeCompleto.Size = new System.Drawing.Size(590, 22);
+            this.tbNomeCompleto.Size = new System.Drawing.Size(590, 26);
             this.tbNomeCompleto.TabIndex = 1;
             // 
             // tbEmail
             // 
-            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tbEmail.Location = new System.Drawing.Point(224, 293);
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbEmail.Location = new System.Drawing.Point(245, 339);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(316, 22);
+            this.tbEmail.Size = new System.Drawing.Size(316, 26);
             this.tbEmail.TabIndex = 2;
             // 
             // lbEmail
@@ -117,7 +121,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbEmail.AutoSize = true;
             this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lbEmail.ForeColor = System.Drawing.Color.White;
-            this.lbEmail.Location = new System.Drawing.Point(220, 261);
+            this.lbEmail.Location = new System.Drawing.Point(241, 307);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(71, 20);
             this.lbEmail.TabIndex = 4;
@@ -128,7 +132,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbTelefone.AutoSize = true;
             this.lbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lbTelefone.ForeColor = System.Drawing.Color.White;
-            this.lbTelefone.Location = new System.Drawing.Point(542, 261);
+            this.lbTelefone.Location = new System.Drawing.Point(563, 307);
             this.lbTelefone.Name = "lbTelefone";
             this.lbTelefone.Size = new System.Drawing.Size(91, 20);
             this.lbTelefone.TabIndex = 6;
@@ -139,28 +143,18 @@ namespace Biblioteca.Formularios.Clientes
             this.lbDataNascimento.AutoSize = true;
             this.lbDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lbDataNascimento.ForeColor = System.Drawing.Color.White;
-            this.lbDataNascimento.Location = new System.Drawing.Point(542, 540);
+            this.lbDataNascimento.Location = new System.Drawing.Point(563, 586);
             this.lbDataNascimento.Name = "lbDataNascimento";
             this.lbDataNascimento.Size = new System.Drawing.Size(177, 20);
             this.lbDataNascimento.TabIndex = 8;
             this.lbDataNascimento.Text = "Data de Nascimento:";
             // 
-            // dtDataDeNascimento
-            // 
-            this.dtDataDeNascimento.CustomFormat = "dd/MM/yyyy";
-            this.dtDataDeNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.dtDataDeNascimento.Location = new System.Drawing.Point(546, 574);
-            this.dtDataDeNascimento.Name = "dtDataDeNascimento";
-            this.dtDataDeNascimento.Size = new System.Drawing.Size(268, 22);
-            this.dtDataDeNascimento.TabIndex = 11;
-            this.dtDataDeNascimento.Value = new System.DateTime(2021, 9, 5, 0, 0, 0, 0);
-            // 
             // tbLogradouro
             // 
-            this.tbLogradouro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLogradouro.Location = new System.Drawing.Point(224, 357);
+            this.tbLogradouro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbLogradouro.Location = new System.Drawing.Point(245, 403);
             this.tbLogradouro.Name = "tbLogradouro";
-            this.tbLogradouro.Size = new System.Drawing.Size(369, 22);
+            this.tbLogradouro.Size = new System.Drawing.Size(369, 26);
             this.tbLogradouro.TabIndex = 4;
             // 
             // lbLogradouro
@@ -168,7 +162,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbLogradouro.AutoSize = true;
             this.lbLogradouro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLogradouro.ForeColor = System.Drawing.Color.White;
-            this.lbLogradouro.Location = new System.Drawing.Point(224, 325);
+            this.lbLogradouro.Location = new System.Drawing.Point(245, 371);
             this.lbLogradouro.Name = "lbLogradouro";
             this.lbLogradouro.Size = new System.Drawing.Size(106, 20);
             this.lbLogradouro.TabIndex = 11;
@@ -179,7 +173,7 @@ namespace Biblioteca.Formularios.Clientes
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(595, 325);
+            this.label1.Location = new System.Drawing.Point(616, 371);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 13;
@@ -187,10 +181,10 @@ namespace Biblioteca.Formularios.Clientes
             // 
             // tbNumero
             // 
-            this.tbNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.tbNumero.Location = new System.Drawing.Point(599, 357);
+            this.tbNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbNumero.Location = new System.Drawing.Point(620, 403);
             this.tbNumero.Name = "tbNumero";
-            this.tbNumero.Size = new System.Drawing.Size(217, 22);
+            this.tbNumero.Size = new System.Drawing.Size(217, 26);
             this.tbNumero.TabIndex = 5;
             // 
             // lbCep
@@ -198,7 +192,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbCep.AutoSize = true;
             this.lbCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCep.ForeColor = System.Drawing.Color.White;
-            this.lbCep.Location = new System.Drawing.Point(595, 396);
+            this.lbCep.Location = new System.Drawing.Point(616, 442);
             this.lbCep.Name = "lbCep";
             this.lbCep.Size = new System.Drawing.Size(49, 20);
             this.lbCep.TabIndex = 17;
@@ -206,10 +200,10 @@ namespace Biblioteca.Formularios.Clientes
             // 
             // tbComplemento
             // 
-            this.tbComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbComplemento.Location = new System.Drawing.Point(224, 431);
+            this.tbComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbComplemento.Location = new System.Drawing.Point(245, 477);
             this.tbComplemento.Name = "tbComplemento";
-            this.tbComplemento.Size = new System.Drawing.Size(369, 22);
+            this.tbComplemento.Size = new System.Drawing.Size(369, 26);
             this.tbComplemento.TabIndex = 6;
             // 
             // lbComplemento
@@ -217,7 +211,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbComplemento.AutoSize = true;
             this.lbComplemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbComplemento.ForeColor = System.Drawing.Color.White;
-            this.lbComplemento.Location = new System.Drawing.Point(220, 396);
+            this.lbComplemento.Location = new System.Drawing.Point(241, 442);
             this.lbComplemento.Name = "lbComplemento";
             this.lbComplemento.Size = new System.Drawing.Size(124, 20);
             this.lbComplemento.TabIndex = 15;
@@ -225,19 +219,19 @@ namespace Biblioteca.Formularios.Clientes
             // 
             // mTbCep
             // 
-            this.mTbCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.mTbCep.Location = new System.Drawing.Point(599, 431);
+            this.mTbCep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mTbCep.Location = new System.Drawing.Point(620, 477);
             this.mTbCep.Mask = "00000-999";
             this.mTbCep.Name = "mTbCep";
-            this.mTbCep.Size = new System.Drawing.Size(217, 22);
+            this.mTbCep.Size = new System.Drawing.Size(217, 26);
             this.mTbCep.TabIndex = 7;
             // 
             // tbBairro
             // 
-            this.tbBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBairro.Location = new System.Drawing.Point(224, 499);
+            this.tbBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbBairro.Location = new System.Drawing.Point(245, 545);
             this.tbBairro.Name = "tbBairro";
-            this.tbBairro.Size = new System.Drawing.Size(316, 22);
+            this.tbBairro.Size = new System.Drawing.Size(316, 26);
             this.tbBairro.TabIndex = 8;
             // 
             // lbBairro
@@ -245,7 +239,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbBairro.AutoSize = true;
             this.lbBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbBairro.ForeColor = System.Drawing.Color.White;
-            this.lbBairro.Location = new System.Drawing.Point(220, 465);
+            this.lbBairro.Location = new System.Drawing.Point(241, 511);
             this.lbBairro.Name = "lbBairro";
             this.lbBairro.Size = new System.Drawing.Size(62, 20);
             this.lbBairro.TabIndex = 19;
@@ -253,10 +247,10 @@ namespace Biblioteca.Formularios.Clientes
             // 
             // tbCidade
             // 
-            this.tbCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCidade.Location = new System.Drawing.Point(546, 499);
+            this.tbCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbCidade.Location = new System.Drawing.Point(567, 545);
             this.tbCidade.Name = "tbCidade";
-            this.tbCidade.Size = new System.Drawing.Size(270, 22);
+            this.tbCidade.Size = new System.Drawing.Size(270, 26);
             this.tbCidade.TabIndex = 9;
             // 
             // lbCidade
@@ -264,7 +258,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbCidade.AutoSize = true;
             this.lbCidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCidade.ForeColor = System.Drawing.Color.White;
-            this.lbCidade.Location = new System.Drawing.Point(542, 465);
+            this.lbCidade.Location = new System.Drawing.Point(563, 511);
             this.lbCidade.Name = "lbCidade";
             this.lbCidade.Size = new System.Drawing.Size(70, 20);
             this.lbCidade.TabIndex = 21;
@@ -275,7 +269,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbEstado.AutoSize = true;
             this.lbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEstado.ForeColor = System.Drawing.Color.White;
-            this.lbEstado.Location = new System.Drawing.Point(220, 540);
+            this.lbEstado.Location = new System.Drawing.Point(241, 586);
             this.lbEstado.Name = "lbEstado";
             this.lbEstado.Size = new System.Drawing.Size(71, 20);
             this.lbEstado.TabIndex = 23;
@@ -283,10 +277,10 @@ namespace Biblioteca.Formularios.Clientes
             // 
             // tbEstado
             // 
-            this.tbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEstado.Location = new System.Drawing.Point(224, 574);
+            this.tbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbEstado.Location = new System.Drawing.Point(245, 620);
             this.tbEstado.Name = "tbEstado";
-            this.tbEstado.Size = new System.Drawing.Size(316, 22);
+            this.tbEstado.Size = new System.Drawing.Size(316, 26);
             this.tbEstado.TabIndex = 10;
             // 
             // btnSalvar
@@ -294,10 +288,10 @@ namespace Biblioteca.Formularios.Clientes
             this.btnSalvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(176)))));
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(383, 642);
+            this.btnSalvar.Location = new System.Drawing.Point(366, 685);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(103, 41);
-            this.btnSalvar.TabIndex = 25;
+            this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -307,10 +301,10 @@ namespace Biblioteca.Formularios.Clientes
             this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(176)))));
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(492, 642);
+            this.btnLimpar.Location = new System.Drawing.Point(475, 685);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(103, 41);
-            this.btnLimpar.TabIndex = 26;
+            this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -320,7 +314,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbNomeObrigatorio.AutoSize = true;
             this.lbNomeObrigatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNomeObrigatorio.ForeColor = System.Drawing.Color.Red;
-            this.lbNomeObrigatorio.Location = new System.Drawing.Point(650, 189);
+            this.lbNomeObrigatorio.Location = new System.Drawing.Point(671, 235);
             this.lbNomeObrigatorio.Name = "lbNomeObrigatorio";
             this.lbNomeObrigatorio.Size = new System.Drawing.Size(166, 20);
             this.lbNomeObrigatorio.TabIndex = 27;
@@ -331,7 +325,7 @@ namespace Biblioteca.Formularios.Clientes
             this.lbTelefoneObrigatorio.AutoSize = true;
             this.lbTelefoneObrigatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTelefoneObrigatorio.ForeColor = System.Drawing.Color.Red;
-            this.lbTelefoneObrigatorio.Location = new System.Drawing.Point(650, 261);
+            this.lbTelefoneObrigatorio.Location = new System.Drawing.Point(671, 307);
             this.lbTelefoneObrigatorio.Name = "lbTelefoneObrigatorio";
             this.lbTelefoneObrigatorio.Size = new System.Drawing.Size(166, 20);
             this.lbTelefoneObrigatorio.TabIndex = 28;
@@ -342,20 +336,63 @@ namespace Biblioteca.Formularios.Clientes
             this.lbEmailObrigatorio.AutoSize = true;
             this.lbEmailObrigatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEmailObrigatorio.ForeColor = System.Drawing.Color.Red;
-            this.lbEmailObrigatorio.Location = new System.Drawing.Point(374, 261);
+            this.lbEmailObrigatorio.Location = new System.Drawing.Point(395, 307);
             this.lbEmailObrigatorio.Name = "lbEmailObrigatorio";
             this.lbEmailObrigatorio.Size = new System.Drawing.Size(166, 20);
             this.lbEmailObrigatorio.TabIndex = 29;
             this.lbEmailObrigatorio.Text = "Campo Obrigatório*";
             // 
-            // mtbTelefone
+            // lbCodigo
             // 
-            this.mtbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.mtbTelefone.Location = new System.Drawing.Point(547, 294);
-            this.mtbTelefone.Mask = "(999) 00000-0000";
-            this.mtbTelefone.Name = "mtbTelefone";
-            this.mtbTelefone.Size = new System.Drawing.Size(268, 22);
-            this.mtbTelefone.TabIndex = 3;
+            this.lbCodigo.AutoSize = true;
+            this.lbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCodigo.ForeColor = System.Drawing.Color.White;
+            this.lbCodigo.Location = new System.Drawing.Point(245, 201);
+            this.lbCodigo.Name = "lbCodigo";
+            this.lbCodigo.Size = new System.Drawing.Size(70, 20);
+            this.lbCodigo.TabIndex = 31;
+            this.lbCodigo.Text = "Código:";
+            // 
+            // tbCodigo
+            // 
+            this.tbCodigo.Enabled = false;
+            this.tbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbCodigo.Location = new System.Drawing.Point(321, 198);
+            this.tbCodigo.Name = "tbCodigo";
+            this.tbCodigo.ReadOnly = true;
+            this.tbCodigo.Size = new System.Drawing.Size(42, 26);
+            this.tbCodigo.TabIndex = 0;
+            // 
+            // btnDesativar
+            // 
+            this.btnDesativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(176)))));
+            this.btnDesativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesativar.ForeColor = System.Drawing.Color.White;
+            this.btnDesativar.Location = new System.Drawing.Point(584, 685);
+            this.btnDesativar.Name = "btnDesativar";
+            this.btnDesativar.Size = new System.Drawing.Size(103, 41);
+            this.btnDesativar.TabIndex = 14;
+            this.btnDesativar.Text = "Desativar";
+            this.btnDesativar.UseVisualStyleBackColor = false;
+            this.btnDesativar.Click += new System.EventHandler(this.btnDesativar_Click);
+            // 
+            // mTbDataNascimento
+            // 
+            this.mTbDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mTbDataNascimento.Location = new System.Drawing.Point(569, 621);
+            this.mTbDataNascimento.Mask = "00/00/0000";
+            this.mTbDataNascimento.Name = "mTbDataNascimento";
+            this.mTbDataNascimento.Size = new System.Drawing.Size(268, 26);
+            this.mTbDataNascimento.TabIndex = 11;
+            // 
+            // mTbTelefone
+            // 
+            this.mTbTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mTbTelefone.Location = new System.Drawing.Point(569, 339);
+            this.mTbTelefone.Mask = "(99)99999-9999";
+            this.mTbTelefone.Name = "mTbTelefone";
+            this.mTbTelefone.Size = new System.Drawing.Size(268, 26);
+            this.mTbTelefone.TabIndex = 3;
             // 
             // NovoCliente
             // 
@@ -363,7 +400,11 @@ namespace Biblioteca.Formularios.Clientes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1035, 776);
-            this.Controls.Add(this.mtbTelefone);
+            this.Controls.Add(this.mTbTelefone);
+            this.Controls.Add(this.mTbDataNascimento);
+            this.Controls.Add(this.btnDesativar);
+            this.Controls.Add(this.tbCodigo);
+            this.Controls.Add(this.lbCodigo);
             this.Controls.Add(this.lbEmailObrigatorio);
             this.Controls.Add(this.lbTelefoneObrigatorio);
             this.Controls.Add(this.lbNomeObrigatorio);
@@ -383,7 +424,6 @@ namespace Biblioteca.Formularios.Clientes
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbLogradouro);
             this.Controls.Add(this.lbLogradouro);
-            this.Controls.Add(this.dtDataDeNascimento);
             this.Controls.Add(this.lbDataNascimento);
             this.Controls.Add(this.lbTelefone);
             this.Controls.Add(this.tbEmail);
@@ -412,7 +452,6 @@ namespace Biblioteca.Formularios.Clientes
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbTelefone;
         private System.Windows.Forms.Label lbDataNascimento;
-        private System.Windows.Forms.DateTimePicker dtDataDeNascimento;
         private System.Windows.Forms.TextBox tbLogradouro;
         private System.Windows.Forms.Label lbLogradouro;
         private System.Windows.Forms.Label label1;
@@ -432,6 +471,10 @@ namespace Biblioteca.Formularios.Clientes
         private System.Windows.Forms.Label lbNomeObrigatorio;
         private System.Windows.Forms.Label lbTelefoneObrigatorio;
         private System.Windows.Forms.Label lbEmailObrigatorio;
-        private System.Windows.Forms.MaskedTextBox mtbTelefone;
+        private System.Windows.Forms.Label lbCodigo;
+        private System.Windows.Forms.TextBox tbCodigo;
+        private System.Windows.Forms.Button btnDesativar;
+        private System.Windows.Forms.MaskedTextBox mTbDataNascimento;
+        private System.Windows.Forms.MaskedTextBox mTbTelefone;
     }
 }
