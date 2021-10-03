@@ -14,11 +14,13 @@ namespace Biblioteca.Controller
     {
         private ClienteDAO _dao = new ClienteDAO();
 
+        //Desativa um cliente.
         public void DesativarCliente(String codigo)
         {
             _dao.DesativarCliente(int.Parse(codigo));
         }
 
+        //Busca por codigo ou nome do cliente e se caso estiver em branco lista todos os clientes.
         public void BuscarPorCodigoOuNomeTelaPesquisar(String codigo, String nome, DataGridView dtGridClientes)
         {
             Cliente cliente = new Cliente();
@@ -35,6 +37,7 @@ namespace Biblioteca.Controller
             }
         }
 
+        //Atualiza as informações do banco de dados após preencher as alterações na tela e salvar.
         public void Atualizar(string codigo, string nomeCompleto, string email, string telefone, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado, string dataDeNascimento)
         {
             Cliente cliente = new Cliente
@@ -56,7 +59,7 @@ namespace Biblioteca.Controller
 
             _dao.Atualizar(cliente);
         }
-
+        //Preenche a data grid view
         public void AtualizaGrid(List<Cliente> clientes, DataGridView dtGridClientes)
         {
             dtGridClientes.Rows.Clear();
@@ -72,12 +75,12 @@ namespace Biblioteca.Controller
 
             }
         }
-
+        //Lista todos os clientes.
         public void TodosClientes(DataGridView dtGridClientes)
         {
             AtualizaGrid(_dao.TodosOsClientes(), dtGridClientes);
         }
-
+        //Salvar as informações da tela.
         public void Salvar(string nomeCompleto, string email, string telefone, string logradouro, string numero, string complemento, string cep, string bairro, string cidade, string estado, string dataDeNascimento)
         {
             
@@ -98,8 +101,7 @@ namespace Biblioteca.Controller
             };
             _dao.Inserir(cliente);
         }
-
-
+        //Carrega a combobox com todos os clientes.
         public void CarregarComboboxClientes(ComboBox cbClientes)
         {
             cbClientes.SelectedItem = null;
@@ -110,6 +112,7 @@ namespace Biblioteca.Controller
             cbClientes.DataSource = _dao.TodosOsClientes();
         }
 
+        //Preenche os campos da tela com as informações do banco de dados para edição.
         public void PreencherFormularioTelaEdicao(string codigo, TextBox tbCodigo, TextBox tbNomeCompleto, TextBox tbEmail, MaskedTextBox mTbTelefone, TextBox tbLogradouro, TextBox tbNumero, TextBox tbComplemento, MaskedTextBox mTbCep, TextBox tbBairro, TextBox tbCidade, TextBox tbEstado, MaskedTextBox mTbDataNascimento)
         {
             Cliente cliente = new Cliente();

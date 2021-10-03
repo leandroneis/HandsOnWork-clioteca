@@ -16,6 +16,8 @@ namespace Biblioteca.Controller
         private LivroController _livroController = new LivroController();
         private ClienteController _clienteController = new ClienteController();
 
+        //Método para buscar no banco de dados por codigo do cliente.
+        //Se caso o campo estiver vazio. Carrega a lista inteira.
         public void BuscarPorNomeTelaPesquisar(String clienteCodigo, DataGridView dgEmprestimos)
         {
             Emprestimo emprestimo = new Emprestimo();
@@ -32,7 +34,7 @@ namespace Biblioteca.Controller
                AtualizaGrid(_dao.Pesquisar(emprestimo), dgEmprestimos);
             }
         }
-
+        //Preenche campos da tela para edição com os campos retornados do banco de dados.
         public void PreencherFormularioTelaEdicao(string codigo, TextBox tbCodigo, ComboBox cbClientes, ComboBox cbLivros, DateTimePicker dtDataEmprestimo, DateTimePicker dtDataDevolucao)
         {
             Emprestimo emprestimo = new Emprestimo();
@@ -47,7 +49,7 @@ namespace Biblioteca.Controller
                 dtDataDevolucao.Value = emprestimo.DataDevolucao;
             }
         }
-
+        //Verifica se o cliente tem 4 emprestimos no mês.
         public bool VerificaQuantidadeEmprestimoPorCliente(string cliente)
         {
             int total = _dao.QuantidadeEmprestimoPorCliente(int.Parse(cliente));
@@ -55,6 +57,7 @@ namespace Biblioteca.Controller
             return total < 4 ? true : false;
         }
 
+        //Salva os dados da tela.
         public void Salvar(string codigoCliente, string codigoLivro, string dataEmprestimo, string dataDevolucao)
         {
             Emprestimo emprestimo = new Emprestimo();
@@ -75,7 +78,7 @@ namespace Biblioteca.Controller
 
             _livroController.AtualizarQuantidadeReservada((int)emprestimo.Livro.Codigo);
         }
-
+        //Método responsável por atualizar as informações no banco de dados, após serem alteradas na tela e salvas.
         public void Atualizar(string codigo, string codigoCliente,string codigoLivro, string dataEmprestimo, string dataDevolucao)
         {
             Cliente cliente = new Cliente(int.Parse(codigoCliente));
@@ -91,7 +94,7 @@ namespace Biblioteca.Controller
        
             _dao.Atualizar(emprestimo);
         }
-
+        //Atualiza a dataGridView da tela
         public void AtualizaGrid(List<Emprestimo> emprestimos, DataGridView dgEmprestimos)
         {
             dgEmprestimos.Rows.Clear();
@@ -108,6 +111,7 @@ namespace Biblioteca.Controller
 
             }
         }
+        //Lista todos os emprestimos
         public void TodosEmprestimos(DataGridView dgEmprestimos)
         {
             AtualizaGrid(_dao.TodosOsEmprestimos(), dgEmprestimos);

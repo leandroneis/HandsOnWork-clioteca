@@ -17,6 +17,7 @@ namespace Biblioteca.View.Clientes
         private Form activeForm = null;
         private Main main = null;
 
+        
         public PesquisarClientes(Main main)
         {
             InitializeComponent();
@@ -24,16 +25,17 @@ namespace Biblioteca.View.Clientes
             this.main = main;
         }
        
-
+        //Método responsável por carregar a grid ao carregar a página
         private void PesquisarClientes_Load(object sender, EventArgs e)
         {
             atualizarGrid("", "", this.dgClientes);
         }
 
+        //Método responsável por pesquisar por codigo ou nome do cliente
+        //Verifica se o código é igual a zero e mostra na tela um label com a mensagem.
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            if (tbCodigo.Text.Equals("0"))
-            {
+            if (tbCodigo.Text.Equals("0")){
                 lbCodigoMsg.Visible = true;
             }
             else
@@ -42,15 +44,18 @@ namespace Biblioteca.View.Clientes
             }
         }
 
+        //Método responsável por limpar os campos da tela
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
-
+        //Método para atualizar a grid
         private void atualizarGrid(String codigo, String nome, DataGridView dgClientes)
         {
             _controller.BuscarPorCodigoOuNomeTelaPesquisar(codigo, nome, this.dgClientes);
         }
+
+        //Método para limpar os campos, aonde são setados os campos e recarregado a grid no final.
         private void LimparCampos()
         {
             tbCodigo.Value=0;
@@ -58,12 +63,12 @@ namespace Biblioteca.View.Clientes
             ocultaLabelMensagem();
             atualizarGrid("", "", dgClientes);
         }
-
+        //Método para ocultar a mensagem de campo obrigatorio da tela.
         private void ocultaLabelMensagem()
         {
             lbCodigoMsg.Visible = false;
         }
-        
+        //Método para instanciar um form filho e e fechar o form aberto. Nesse caso fecha o pesquisar e abre o novo cliente.
         private void openChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -79,7 +84,7 @@ namespace Biblioteca.View.Clientes
             childForm.BringToFront();
             childForm.Show();
         }
-
+        //Método utilizado para clicar na grid e carregar os dados para a tela de edição.
         private void dgClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)

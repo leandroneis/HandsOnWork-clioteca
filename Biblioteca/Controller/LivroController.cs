@@ -13,12 +13,14 @@ namespace Biblioteca.Controller
     public class LivroController
     {
         private LivroDAO _dao = new LivroDAO();
-
-        public void DesativarLivro(String codigo)
-        {
+        
+        //Método que chama o dao para desativar o registro do livro com update.
+        public void DesativarLivro(String codigo){
             _dao.DesativarLivro(int.Parse(codigo));
         }
-                public void BuscarPorCodigoOuAutorOuTituloTelaPesquisar(String codigo, String autor,String titulo, DataGridView dgLivros)
+        //Método para buscar no banco de dados por codigo,autor ou titulo.
+        //Se caso os campos estiverem vazio. Carrega a lista inteira.
+        public void BuscarPorCodigoOuAutorOuTituloTelaPesquisar(String codigo, String autor,String titulo, DataGridView dgLivros)
         {
             Livro livro = new Livro();
 
@@ -34,7 +36,7 @@ namespace Biblioteca.Controller
                 AtualizaGrid(_dao.Pesquisar(livro), dgLivros);
             }
         }
-
+        //Método que recebe os valores da tela e atualiza.
         public void Atualizar(string codigo,string titulo,string autor,string editora,string categoria,string estoque,string quantidadeDePaginas,string ano,string quantidadeReservada)
         {
             Livro livro = new Livro
@@ -52,7 +54,7 @@ namespace Biblioteca.Controller
             };
                     _dao.Atualizar(livro);
         }
-
+        //Método que preenche a DataGridView da tela com os valores da lista recebida.
         public void AtualizaGrid(List<Livro> livros, DataGridView dgLivros)
         {
             dgLivros.Rows.Clear();
@@ -69,12 +71,13 @@ namespace Biblioteca.Controller
 
             }
         }
-
+        //Método para trazer todos os livros. 
         public void TodosLivros(DataGridView dgLivros)
         {
             AtualizaGrid(_dao.TodosOsLivros(), dgLivros);
         }
 
+        //Método para salvar.
         public void Salvar(string titulo, string autor, string editora, string categoria, string estoque, string quantidadeDePaginas, string ano,string quantidadeReservada)
         {
             Livro livro = new Livro
@@ -91,7 +94,7 @@ namespace Biblioteca.Controller
             };
             _dao.Inserir(livro);
         }
-                    
+        //Método responsável por carregar as informações na combobox                    
         public void CarregarComboboxLivros(ComboBox cbLivros)
           {
             cbLivros.SelectedItem = null;
@@ -101,6 +104,9 @@ namespace Biblioteca.Controller
             cbLivros.DataSource = _dao.TodosOsLivros();
         }
 
+        //Método busca  o livro por codigo e verifica se possui livros com estoque para o emprestimo.
+        //Estoque -> define o valor de livros em estoque.
+        //QuantidadeReservada -> define a quantidade de livros que já foram para o emprestimo.
 
         public bool PossuiLivroDisponivel(string codigo) {
             Livro livro = new Livro();
@@ -112,9 +118,12 @@ namespace Biblioteca.Controller
             }
             return false;
         }
+        //Atualiza a quantidade de livros reservados.
         public void AtualizarQuantidadeReservada(int codigo) {
             _dao.AtualizarQuantidadeReservada(codigo);
         }
+
+        //Preenche os campos da tela para edição com os valores retornados do banco de dados.
         public void PreencherFormularioTelaEdicao(string codigo, TextBox tbCodigo, TextBox tbTituloLivro, TextBox tbAutor, TextBox tbCategoria, TextBox tbEditora, NumericUpDown tbEstoque, TextBox tbAno, NumericUpDown tbNumeroDePaginas, NumericUpDown tbQuantidadeLivrosReservados)
         {
             Livro livro = new Livro();

@@ -22,7 +22,8 @@ namespace Biblioteca.View.Livros
             btnDesativar.Visible = false;
             _controller = new LivroController();
         }
-
+        //Envia para o controller as informações para receber os dados nos campos da tela.
+        //Verifica se o livro esta disponivel.
         public void PreencherFormularioTelaEdicao(String codigo)
         {
             lbTituloNovoLivro.Text = "Edição do Livro";
@@ -35,6 +36,8 @@ namespace Biblioteca.View.Livros
                 lbQuantidadeLivrosReservados.Visible = true;
             }
         }
+        //O Salvar funciona tanto para atualizar quanto para novo registro.
+        //Faz algumas validações como verificar se os campos obrigatórios estão preenchidos.
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             
@@ -51,12 +54,12 @@ namespace Biblioteca.View.Livros
                 LimparCampos();
             }
         }
-
+        //Limpa os campos da tela.
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
-
+        //Onde é setado os campos para serem limpos.
         private void LimparCampos()
         {
             tbCodigo.Clear();
@@ -75,7 +78,7 @@ namespace Biblioteca.View.Livros
             OcultaLabelCamposObrigatorios();
         }
 
-
+        //Verifica se os campos obrigatorios estao preenchidos.
         private Boolean VerificaCamposObrigatoriosPreenchidos(String titulo, String autor, String categoria,String editora, String estoque)
         {
             if (!String.IsNullOrEmpty(titulo) && !String.IsNullOrEmpty(autor) && !String.IsNullOrEmpty(categoria) && !String.IsNullOrEmpty(editora)&& !String.IsNullOrEmpty(estoque))
@@ -85,6 +88,7 @@ namespace Biblioteca.View.Livros
             MostraLabelCamposObrigatorios(titulo, autor, categoria, editora,estoque);
             return false;
         }
+        //Oculta label com msg de campos obrigatorios
         private void OcultaLabelCamposObrigatorios()
         {
             lbTituloObrigatorio.Visible = false;
@@ -93,6 +97,7 @@ namespace Biblioteca.View.Livros
             lbEditoraObrigatorio.Visible = false;
             lbEstoqueObrigatorio.Visible = false;
         }
+        //Verifica para mostrar a label ou remover de campo obrigatorio.
         private void MostraLabelCamposObrigatorios(String titulo, String autor, String categoria, String editora, String estoque)
         {
             if (String.IsNullOrEmpty(titulo))
@@ -137,7 +142,7 @@ namespace Biblioteca.View.Livros
                 lbEstoqueObrigatorio.Visible = false;
             }
         }
-
+        //Desativa um registro.
         private void btnDesativar_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(tbCodigo.Text) && !tbCodigo.Text.Equals("0"))

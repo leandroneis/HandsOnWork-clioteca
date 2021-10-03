@@ -26,13 +26,15 @@ namespace Biblioteca.View.Emprestimos
             carregarCombos();
 
         }
-
+        //Envia o codigo para o retorno da informações para o preenchimento dos campos da tela para edição.
         public void PreencherFormularioTelaEdicao(String codigo)
         {
             lbTituloNovoEmprestimo.Text = "Edição de Empréstimo";
             _emprestimoController.PreencherFormularioTelaEdicao(codigo, tbCodigo, cbClientes, cbLivros, dtDataEmprestimo, dtDataDevolucao);
         }
-
+        /* Método responsável de pegar os valores da tela e enviar ao controler para salvar ou atualizar.
+         * Temos uma verificação para campos obrigatórios
+         */
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             var cliente = cbClientes.SelectedValue.ToString();
