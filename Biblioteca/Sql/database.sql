@@ -24,29 +24,6 @@ CREATE TABLE `cliente` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `emprestimo`
---
-
-DROP TABLE IF EXISTS `emprestimo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `emprestimo` (
-  `codigo` bigint NOT NULL AUTO_INCREMENT,
-  `data_emprestimo` date DEFAULT NULL,
-  `data_devolucao` date DEFAULT NULL,
-  `ativo` tinyint(1) NOT NULL DEFAULT '1',
-  `cliente_codigo` bigint NOT NULL,
-  `livro_codigo` bigint NOT NULL,
-  PRIMARY KEY (`codigo`),
-  KEY `fk_emprestimo_cliente_idx` (`cliente_codigo`),
-  KEY `fk_emprestimo_livro1_idx` (`livro_codigo`),
-  CONSTRAINT `fk_emprestimo_cliente` FOREIGN KEY (`cliente_codigo`) REFERENCES `cliente` (`codigo`),
-  CONSTRAINT `fk_emprestimo_livro1` FOREIGN KEY (`livro_codigo`) REFERENCES `livro` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
---
 -- Table structure for table `livro`
 --
 
@@ -68,3 +45,24 @@ CREATE TABLE `livro` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `emprestimo`
+--
+
+DROP TABLE IF EXISTS `emprestimo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `emprestimo` (
+  `codigo` bigint NOT NULL AUTO_INCREMENT,
+  `data_emprestimo` date DEFAULT NULL,
+  `data_devolucao` date DEFAULT NULL,
+  `ativo` tinyint(1) NOT NULL DEFAULT '1',
+  `cliente_codigo` bigint NOT NULL,
+  `livro_codigo` bigint NOT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `fk_emprestimo_cliente_idx` (`cliente_codigo`),
+  KEY `fk_emprestimo_livro1_idx` (`livro_codigo`),
+  CONSTRAINT `fk_emprestimo_cliente` FOREIGN KEY (`cliente_codigo`) REFERENCES `cliente` (`codigo`),
+  CONSTRAINT `fk_emprestimo_livro1` FOREIGN KEY (`livro_codigo`) REFERENCES `livro` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
